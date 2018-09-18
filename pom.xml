@@ -6,7 +6,11 @@
 
     <groupId>com.liu</groupId>
     <artifactId>springcloud</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>jar</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -22,11 +26,106 @@
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
     </properties>
 
+    <repositories>
+        <!--<repository>-->
+            <!--<id>in-project</id>-->
+            <!--<name>In Project Repo</name>-->
+            <!--<url>file://${project.basedir}/lib</url>-->
+        <!--</repository>-->
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>djcpsmaven</id>
+            <name>djcpsmaven</name>
+            <layout>default</layout>
+            <url>http://192.168.0.236:8081/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- spring boot集成log4j2日志 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <!-- 去除spring boot自带的logback依赖 -->
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- 添加log4j2的依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+
+        <!-- 百度开源 校验参数模块 -->
+        <dependency>
+            <groupId>com.baidu.unbiz</groupId>
+            <artifactId>fluent-validator</artifactId>
+            <version>1.0.6</version>
+            <exclusions>
+                <exclusion>  <!-- declare the exclusion here -->
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.baidu.unbiz</groupId>
+            <artifactId>fluent-validator-jsr303</artifactId>
+            <version>1.0.6</version>
+            <exclusions>
+                <exclusion>  <!-- declare the exclusion here -->
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--架构监控-->
+        <dependency>
+            <groupId>dongjinghealth</groupId>
+            <artifactId>dongjinghealth</artifactId>
+            <version>2.0.0-RELEASE</version>
+        </dependency>
+
+        <!-- DJCPS log4j-->
+        <dependency>
+            <groupId>com.djcps</groupId>
+            <artifactId>djcpslog4j</artifactId>
+            <version>2.0.6.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>rpc.plugin</groupId>
+            <artifactId>djhttprpc</artifactId>
+            <version>1.30</version>
+        </dependency>
+        <!--djcps redis-->
+        <dependency>
+            <groupId>com.djcps.redis</groupId>
+            <artifactId>djredis-spring-boot-starter</artifactId>
+            <version>2.0.2-RELEASE</version>
         </dependency>
     </dependencies>
 

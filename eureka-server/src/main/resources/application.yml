@@ -12,5 +12,4 @@ eureka:
 
 spring:
   application:
-#    ÏîÄ¿Ãû
     name: eureka-server

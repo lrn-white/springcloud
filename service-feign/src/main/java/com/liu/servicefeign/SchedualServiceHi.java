@@ -1,9 +1,12 @@
 package com.liu.servicefeign;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Map;
 
 /**
  * @author lrn
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @FeignClient(value = "eureka-client")
 public interface SchedualServiceHi {
+
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
-    String sayHiFromClientOne(@RequestParam(value = "name") String name);
+    Map<String, Object> sayHiFromClientOne(@RequestBody Student student);
 }
