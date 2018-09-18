@@ -21,7 +21,7 @@ public class HiController {
     SchedualServiceHi schedualServiceHi;
 
     @RequestMapping(value = "/hi")
-    public Map<String, Object> sayHi(Student student) throws Exception {
-        return schedualServiceHi.sayHiFromClientOne(student);
+    public String sayHi(String name) throws Exception {
+        return schedualServiceHi.sayHiFromClientOne(name);
     }
 }

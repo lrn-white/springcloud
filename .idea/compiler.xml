@@ -9,7 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-client" />
         <module name="eureka-server" />
-        <module name="jar" />
         <module name="service-feign" />
         <module name="service-ribbon" />
       </profile>

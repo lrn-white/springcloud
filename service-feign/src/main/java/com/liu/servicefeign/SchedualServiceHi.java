@@ -13,9 +13,9 @@ import java.util.Map;
  * @createTime : 2018/9/6 20:09
  * @updateTime :
  */
-@FeignClient(value = "eureka-client")
+@FeignClient(value = "eureka-client",fallback = SchedualServiceHiHystric.class)
 public interface SchedualServiceHi {
 
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
-    Map<String, Object> sayHiFromClientOne(@RequestBody Student student);
+    String sayHiFromClientOne(@RequestBody String name);
 }
