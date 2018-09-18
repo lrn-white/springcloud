@@ -23,6 +23,6 @@ public class EurekaClientApplication {
 
     @RequestMapping("/hi")
     public String home(@RequestBody String name){
-        return name;
+        return "cleint: " +name;
     }
 }
