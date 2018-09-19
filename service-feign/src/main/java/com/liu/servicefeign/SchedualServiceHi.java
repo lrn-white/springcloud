@@ -13,7 +13,7 @@ import java.util.Map;
  * @createTime : 2018/9/6 20:09
  * @updateTime :
  */
-@FeignClient(value = "eureka-client",fallback = SchedualServiceHiHystric.class)
+@FeignClient(value = "eureka-server",fallback = SchedualServiceHiHystric.class)
 public interface SchedualServiceHi {
 
     @RequestMapping(value = "/hi",method = RequestMethod.GET)

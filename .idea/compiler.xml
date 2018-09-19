@@ -15,8 +15,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="config-server" target="1.8" />
       <module name="demo" target="1.8" />
       <module name="eureka-client" target="1.8" />
+      <module name="eureka-config" target="1.8" />
       <module name="eureka-server" target="1.8" />
       <module name="jar" target="1.8" />
       <module name="jarsupport" target="1.8" />
